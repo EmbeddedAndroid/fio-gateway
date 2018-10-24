@@ -12,7 +12,7 @@ services:
       - /var/lock
       - /var/log
   cf-proxy-coap-http:
-          image: hub.foundries.io/cf-proxy-coap-http:latest
+    image: hub.foundries.io/cf-proxy-coap-http:latest
     read_only: true
     restart: always
     network_mode: "host"
