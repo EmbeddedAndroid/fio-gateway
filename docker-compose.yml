@@ -25,14 +25,14 @@ services:
     tmpfs:
       - /var/run
     volumes:
-      - /tmp/nginx-lwm2m.conf:/etc/nginx/nginx.conf
+      - /home/osf/fio-gateway/nginx-lwm2m.conf:/etc/nginx/nginx.conf
   mosquitto:
     image: hub.foundries.io/mosquitto:latest
     read_only: true
     restart: always
     network_mode: "host"
     volumes:
-      - /tmp/mosquitto.conf:/etc/mosquitto/conf.d/mosquitto.conf
+      - /home/osf/fio-gateway/mosquitto.conf:/etc/mosquitto/conf.d/mosquitto.conf
   nginx-http-proxy:
     image: hub.foundries.io/nginx:latest
     command: nginx-debug -g 'daemon off;'
@@ -43,4 +43,4 @@ services:
       - /var/run
       - /var/cache/nginx
     volumes:
-      - /tmp/nginx-http-proxy.conf:/etc/nginx/nginx.conf
+      - /home/osf/fio-gateway/nginx-http-proxy.conf:/etc/nginx/nginx.conf
